@@ -1,0 +1,25 @@
+<h3>Logs</h3>
+
+<div class="alert alert-primary" role="alert" id="alertM">
+</div>
+
+<div id="dataoutput">
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        $('#alert').hide();
+        $('#alertM').hide();
+
+        getAll();
+    });
+
+    function getAll(){
+        $.post('logsGetAll', {}, function(responseText){
+            $("#dataoutput").html(responseText); 
+            $('#logTb').DataTable();
+        });
+    }
+
+    
+</script>
